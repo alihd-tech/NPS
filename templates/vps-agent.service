@@ -1,0 +1,15 @@
+[Unit]
+Description=VPS Management Node.js Agent
+After=network.target
+
+[Service]
+Type=simple
+User=vpsadmin
+WorkingDirectory=/home/vpsadmin/vps-agent
+ExecStart=/usr/bin/node index.js
+Restart=always
+RestartSec=10
+Environment=NODE_ENV=production
+
+[Install]
+WantedBy=multi-user.target
